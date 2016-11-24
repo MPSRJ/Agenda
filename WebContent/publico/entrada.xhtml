@@ -5,13 +5,31 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		<title>Agenda</title>
-	</h:head>
+<h:head>
+<title>Agenda</title>
+</h:head>
 	
 	<h:body>
 		<h:form>
-			<p:outputLabel value="Olá Mundo JSF + PrimeFaces !" />
+		
+		<h1>Agenda</h1>
+		
+		<p:fieldset legend="Contatos">
+		
+			<p:dataTable value="#{entradaBean.listaContatos}" var="contato">
+			
+				<p:column headerText="Nome">
+					<h:outputLabel value="#{contato.nome}"></h:outputLabel>
+				</p:column>
+				
+				<p:column headerText="Endereço">
+					<h:outputLabel value="#{contato.endereco}"></h:outputLabel>
+				</p:column>
+			
+			</p:dataTable>
+		
+		</p:fieldset>
+		
 		</h:form>
 	</h:body>
 </html>
