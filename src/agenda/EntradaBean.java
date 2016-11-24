@@ -12,8 +12,11 @@ public class EntradaBean {
 	
 	
 
+	private Contato contato = new Contato();
 	
+	private List<Contato> listaContatos = new ArrayList<Contato>();
 	
+
 	public EntradaBean() {
 		Contato contato1 = new Contato(), contato2 = new Contato();
 
@@ -27,7 +30,26 @@ public class EntradaBean {
 		listaContatos.add(contato2);
 	}
 
-	private List<Contato> listaContatos = new ArrayList<Contato>();
+	public String salvar(){
+		
+		System.out.println("Salvando no banco de dados.......");
+		
+		listaContatos.add(contato);
+		
+		contato = new Contato();
+		
+		return "entrada?faces-redirect=true";
+	}
+	
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+	
 
 	public List<Contato> getListaContatos() {
 		return listaContatos;

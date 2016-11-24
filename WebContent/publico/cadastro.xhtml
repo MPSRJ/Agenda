@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<h:head>
+		<title>Cadastro Contato</title>
+	</h:head>
+
+	<h:body>
+		<p:fieldset legend="Cadastro de Contato">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Nome:" for="inputNome" />
+					<h:inputText id="inputNome" value="#{entradaBean.contato.nome}" />
+
+					<h:outputLabel value="Endereço:" for="inputEndereco" />
+					<h:inputText id="inputEndereco"	value="#{entradaBean.contato.endereco}" />
+
+					<p:commandButton value="Enviar" action="#{entradaBean.salvar}"></p:commandButton>
+				</h:panelGrid>
+			</h:form>
+		</p:fieldset>
+	</h:body>
+</html>
