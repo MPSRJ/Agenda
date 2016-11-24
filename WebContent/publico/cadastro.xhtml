@@ -15,12 +15,12 @@
 			<h:form>
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Nome:" for="inputNome" />
-					<h:inputText id="inputNome" value="#{entradaBean.contato.nome}" />
+					<h:inputText id="inputNome" value="#{cadastroBean.contato.nome}" />
 
 					<h:outputLabel value="Endereço:" for="inputEndereco" />
-					<h:inputText id="inputEndereco"	value="#{entradaBean.contato.endereco}" />
+					<h:inputText id="inputEndereco"	value="#{cadastroBean.contato.endereco}" />
 
-					<p:commandButton value="Enviar" action="#{entradaBean.salvar}"></p:commandButton>
+					<p:commandButton value="Enviar" action="#{cadastroBean.salvar}"></p:commandButton>
 				</h:panelGrid>
 			</h:form>
 		</p:fieldset>

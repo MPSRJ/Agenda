@@ -4,68 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import agenda.modelo.contato.Contato;
+import agenda.modelo.contato.ContatoRN;
 
-@ManagedBean(name="entradaBean")
-@SessionScoped
+@ManagedBean(name = "entradaBean")
+@RequestScoped
 public class EntradaBean {
-	
-	
 
-	private Contato contato = new Contato();
-	
+	@SuppressWarnings("unused")
 	private List<Contato> listaContatos = new ArrayList<Contato>();
-	
-
-	public EntradaBean() {
-		Contato contato1 = new Contato(), contato2 = new Contato();
-
-		contato1.setNome("José Luis");
-		contato1.setEndereco("Av Brasil, 123");
-		
-		contato2.setNome("Marcelo");
-		contato2.setEndereco("Rua da Aurora, 485");
-		
-		listaContatos.add(contato1);
-		listaContatos.add(contato2);
-	}
-
-	public String salvar(){
-		
-		System.out.println("Salvando no banco de dados.......");
-		
-		listaContatos.add(contato);
-		
-		contato = new Contato();
-		
-		return "entrada?faces-redirect=true";
-	}
-	
-
-	public Contato getContato() {
-		return contato;
-	}
-
-	public void setContato(Contato contato) {
-		this.contato = contato;
-	}
-	
 
 	public List<Contato> getListaContatos() {
-		return listaContatos;
+
+		ContatoRN contatoRN = new ContatoRN();
+
+		return contatoRN.listar();
 	}
-
-	public void setListaContatos(List<Contato> listaContatos) {
-		this.listaContatos = listaContatos;
-	}
-
-	
-	
-	
-
-
-		
 
 }

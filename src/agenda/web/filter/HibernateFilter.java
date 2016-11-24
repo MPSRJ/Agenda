@@ -12,15 +12,12 @@ import org.hibernate.SessionFactory;
 
 import agenda.util.HibernateUtil;
 
-/**
- * @author Marcelo Ponciano dos Santos
- *
- */
+
 public class HibernateFilter implements Filter {
 
 	private SessionFactory	sf;
 
-	// Inicia a conex�o
+	// Inicia a conexão
 	public void init(FilterConfig config) throws ServletException {
 		this.sf = HibernateUtil.getSessionFactory();
 	}
@@ -28,7 +25,7 @@ public class HibernateFilter implements Filter {
 	public void destroy() {
 	}
 
-	// Filtra as requisi��es, controla as transa��es
+	// Filtra as requisições, controla as transações
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws ServletException {
 
 		try {
