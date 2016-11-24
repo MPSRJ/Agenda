@@ -6,30 +6,52 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-<title>Agenda</title>
+	<title>Agenda</title>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/estilo.css" />
 </h:head>
-	
-	<h:body>
+
+<h:body>
+	<div id="container">
 		<h:form>
-		
-		<h1>Agenda</h1>
-		
-		<p:fieldset legend="Contatos">
-		
-			<p:dataTable value="#{entradaBean.listaContatos}" var="contato">
+			<div id="titulo" >
+
+				Agenda
+			</div>
+
+			<div id="barra_menu">
+
+				<p:menubar>
+						<p:menuitem value="Listagem" icon="ui-icon-document"
+							url="/publico/entrada.jsf" />
+						<p:menuitem value="Cadastro" icon="ui-icon-document"
+							url="/publico/cadastro.jsf" />
+
+
+				</p:menubar>
+			</div>
 			
-				<p:column headerText="Nome">
-					<h:outputLabel value="#{contato.nome}"></h:outputLabel>
-				</p:column>
-				
-				<p:column headerText="Endereço">
-					<h:outputLabel value="#{contato.endereco}"></h:outputLabel>
-				</p:column>
-			
-			</p:dataTable>
-		
-		</p:fieldset>
-		
+			<div id="corpo" >
+				<p:fieldset legend="Contatos">
+
+					<p:dataTable value="#{entradaBean.listaContatos}" var="contato">
+
+						<p:column headerText="Nome">
+							<h:outputLabel value="#{contato.nome}"></h:outputLabel>
+						</p:column>
+
+						<p:column headerText="Endereço">
+							<h:outputLabel value="#{contato.endereco}"></h:outputLabel>
+						</p:column>
+
+					</p:dataTable>
+
+				</p:fieldset>
+			</div>
+			<div id="rodape">
+			2016 - Agenda - Todos os direitos reservados
+			</div>
 		</h:form>
-	</h:body>
+	</div>
+</h:body>
 </html>

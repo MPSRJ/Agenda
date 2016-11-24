@@ -6,23 +6,47 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-	<h:head>
-		<title>Cadastro Contato</title>
-	</h:head>
+<h:head>
+	<title>Cadastro Contato</title>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/estilo.css" />
+</h:head>
 
-	<h:body>
-		<p:fieldset legend="Cadastro de Contato">
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Nome:" for="inputNome" />
-					<h:inputText id="inputNome" value="#{cadastroBean.contato.nome}" />
 
-					<h:outputLabel value="Endereço:" for="inputEndereco" />
-					<h:inputText id="inputEndereco"	value="#{cadastroBean.contato.endereco}" />
 
-					<p:commandButton value="Enviar" action="#{cadastroBean.salvar}"></p:commandButton>
-				</h:panelGrid>
-			</h:form>
-		</p:fieldset>
-	</h:body>
+<h:body>
+	<div id="container">
+		<h:form>
+			<div id="titulo">Agenda</div>
+
+			<div id="barra_menu">
+				<p:menubar>
+					<p:menuitem value="Listagem" icon="ui-icon-document"
+						url="/publico/entrada.jsf" />
+					<p:menuitem value="Cadastro" icon="ui-icon-document"
+						url="/publico/cadastro.jsf" />
+				</p:menubar>
+			</div>
+
+			<div id="corpo">
+
+				<p:fieldset legend="Cadastro de Contato">
+					<h:form>
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Nome:" for="inputNome" />
+							<h:inputText id="inputNome" value="#{cadastroBean.contato.nome}" />
+
+							<h:outputLabel value="Endereço:" for="inputEndereco" />
+							<h:inputText id="inputEndereco"
+								value="#{cadastroBean.contato.endereco}" />
+
+							<p:commandButton value="Enviar" action="#{cadastroBean.salvar}"></p:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</p:fieldset>
+			</div>
+			<div id="rodape">2016 - Agenda - Todos os direitos reservados</div>
+		</h:form>
+	</div>
+</h:body>
 </html>
