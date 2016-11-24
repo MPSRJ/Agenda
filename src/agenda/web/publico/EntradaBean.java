@@ -17,7 +17,6 @@ public class EntradaBean {
 	@SuppressWarnings("unused")
 	private List<Contato> listaContatos = new ArrayList<Contato>();
 	
-	private Sexo[] listaSexo;
 	
 
 	public List<Contato> getListaContatos() {
@@ -29,17 +28,7 @@ public class EntradaBean {
 
 
 	public Sexo[] getListaSexo() {
-		listaSexo = Sexo.values();
+		Sexo[] listaSexo = Sexo.values();
 		return listaSexo;
 	}
-
-
-	public void setListaSexo(Sexo[] listaSexo) {
-		this.listaSexo = listaSexo;
-	}
-
-
-	
-
-
 }

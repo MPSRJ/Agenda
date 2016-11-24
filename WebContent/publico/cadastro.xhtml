@@ -46,10 +46,10 @@
 								placeholder="Endereço:" required="true" requiredMessage="O Endereço deve ser informado!"/>
 
 							<p:outputLabel value="Telefone:" for="inputTelefone" />
-							<p:inputMask id="inputTelefone"
+							<p:inputText id="inputTelefone" styleClass="js-phone-number"
 								value="#{cadastroBean.contato.telefone}" placeholder="Telefone:"
-								mask="(99)99999-9999" required="true" requiredMessage="O Telefone deve ser informado!"/>
-
+								required="true" requiredMessage="O Telefone deve ser informado!"/>
+							
 							<p:outputLabel value="Data de Nascimento:" for="inputDataNasc" />
 							<p:inputMask id="inputDataNasc"
 								value="#{cadastroBean.contato.dataNascimento}"
@@ -76,5 +76,8 @@
 			<div id="rodape">2016 - Agenda - Todos os direitos reservados</div>
 		</h:form>
 	</div>
+	<script src="../resources/js/vendors/jquery.js"></script>
+	<script src="../resources/js/vendors/jquery.mask.min.js"></script>
+	<script src="../resources/js/agenda.js"></script>
 </h:body>
 </html>
