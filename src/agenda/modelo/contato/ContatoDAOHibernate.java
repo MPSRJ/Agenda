@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 
 public class ContatoDAOHibernate implements ContatoDAO{
 	
@@ -23,13 +24,25 @@ public class ContatoDAOHibernate implements ContatoDAO{
 		
 	}
 
+	@Override
+	public void excluir(Contato contato) {
+		session.delete(contato);
+		
+	}
 
+	@Override
+	public Contato caregar(Integer codigo) {
+		
+		return  (Contato) session.load(Contato.class, codigo);
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Contato> listar() {
 		
 		Criteria crit = session.createCriteria(Contato.class);
+		
+		crit.addOrder(Order.asc("nome"));
 				
 		return crit.list();
 		

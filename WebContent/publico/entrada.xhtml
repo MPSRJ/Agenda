@@ -1,56 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>Agenda</title>
 	<link rel="stylesheet" type="text/css"
 		href="../resources/css/estilo.css" />
+
 </h:head>
 
 <h:body>
 	<div id="container">
 		<h:form>
-			<div id="titulo" >
-
-				Agenda
-			</div>
+			<div id="titulo">Agenda</div>
 
 			<div id="barra_menu">
 
 				<p:menubar>
-						<p:menuitem value="Listagem" icon="ui-icon-document"
-							url="/publico/entrada.jsf" />
-						<p:menuitem value="Cadastro" icon="ui-icon-document"
-							url="/publico/cadastro.jsf" />
+					<p:menuitem value="Listagem" icon="ui-icon-document"
+						url="/publico/entrada.jsf" />
+					<p:menuitem value="Cadastro" icon="ui-icon-document"
+						url="/publico/cadastro.jsf" />
 
 
 				</p:menubar>
 			</div>
-			
-			<div id="corpo" >
+
+			<div id="corpo">
 				<p:fieldset legend="Contatos">
+					<h:form>
+						<p:dataTable value="#{entradaBean.listaContatos}" var="contato" widgetVar="contatosTable" emptyMessage="Não há dados para exibir!">
 
-					<p:dataTable value="#{entradaBean.listaContatos}" var="contato">
+							<p:column headerText="Nome" filterBy="#{contato.nome}"
+								filterMatchMode="contains">
+								<h:outputLabel value="#{contato.nome}"></h:outputLabel>
+							</p:column>
 
-						<p:column headerText="Nome">
-							<h:outputLabel value="#{contato.nome}"></h:outputLabel>
-						</p:column>
+							<p:column headerText="Endereço" filterBy="#{contato.endereco}"
+								filterMatchMode="contains">
+								<h:outputLabel value="#{contato.endereco}"></h:outputLabel>
+							</p:column>
 
-						<p:column headerText="EndereÃ§o">
-							<h:outputLabel value="#{contato.endereco}"></h:outputLabel>
-						</p:column>
+							<p:column headerText="Telefone">
+								<h:outputLabel value="#{contato.telefone}"></h:outputLabel>
+							</p:column>
 
-					</p:dataTable>
+							<p:column headerText="Data Nascimento"
+								style="text-align: center;">
+								<h:outputLabel value="#{contato.dataNascimento}">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:outputLabel>
+							</p:column>
 
+							<p:column headerText="Sexo" style="text-align: center;" filterBy="#{contato.sexo}">
+								<f:facet name="filter">
+									<p:selectOneMenu onchange="PF('contatosTable').filter()">
+										<f:selectItem itemLabel="Todos" itemValue="#{null}"
+											noSelectionOption="true" />
+										<f:selectItems value="#{entradaBean.listaSexo}" itemLabel="#{sexo.descricao}" var="sexo" />
+									</p:selectOneMenu>
+								</f:facet>
+
+								<h:outputLabel value="#{contato.sexo.descricao}"></h:outputLabel>
+							</p:column>
+
+							<p:column headerText="Idade (anos)" style="text-align: center;">
+								<h:outputLabel value="#{contato.idade}"></h:outputLabel>
+							</p:column>
+
+
+						</p:dataTable>
+
+					</h:form>
 				</p:fieldset>
 			</div>
-			<div id="rodape">
-			2016 - Agenda - Todos os direitos reservados
-			</div>
+			<div id="rodape">2016 - Agenda - Todos os direitos reservados</div>
 		</h:form>
 	</div>
 </h:body>

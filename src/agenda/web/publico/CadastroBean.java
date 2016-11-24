@@ -16,6 +16,8 @@ public class CadastroBean {
 	static Logger logger = LoggerFactory.getLogger(CadastroBean.class);
 
 	private Contato contato = new Contato();
+	
+	
 
 	public String salvar() {
 
@@ -36,7 +38,7 @@ public class CadastroBean {
 
 		contato = new Contato();
 
-		return "entrada?faces-redirect=true";
+		return "/publico/entrada.jsf?faces-redirect=true";
 	}
 
 	public Contato getContato() {

@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 <h:head>
@@ -17,6 +18,7 @@
 <h:body>
 	<div id="container">
 		<h:form>
+			<p:growl autoUpdate="true" />
 			<div id="titulo">Agenda</div>
 
 			<div id="barra_menu">
@@ -32,15 +34,41 @@
 
 				<p:fieldset legend="Cadastro de Contato">
 					<h:form>
+						<h:inputHidden value="#{cadastroBean.contato.codigo}" />
 						<h:panelGrid columns="2">
-							<h:outputLabel value="Nome:" for="inputNome" />
-							<h:inputText id="inputNome" value="#{cadastroBean.contato.nome}" />
+							<p:outputLabel value="Nome:" for="inputNome" />
+							<p:inputText id="inputNome" value="#{cadastroBean.contato.nome}"
+								size="100" placeholder="Nome:" required="true" requiredMessage="O Nome deve ser informado!"/>
 
-							<h:outputLabel value="EndereÃ§o:" for="inputEndereco" />
-							<h:inputText id="inputEndereco"
-								value="#{cadastroBean.contato.endereco}" />
+							<p:outputLabel value="Endereço:" for="inputEndereco" />
+							<p:inputText id="inputEndereco"
+								value="#{cadastroBean.contato.endereco}" size="100"
+								placeholder="Endereço:" required="true" requiredMessage="O Endereço deve ser informado!"/>
 
-							<p:commandButton value="Enviar" action="#{cadastroBean.salvar}"></p:commandButton>
+							<p:outputLabel value="Telefone:" for="inputTelefone" />
+							<p:inputMask id="inputTelefone"
+								value="#{cadastroBean.contato.telefone}" placeholder="Telefone:"
+								mask="(99)99999-9999" required="true" requiredMessage="O Telefone deve ser informado!"/>
+
+							<p:outputLabel value="Data de Nascimento:" for="inputDataNasc" />
+							<p:inputMask id="inputDataNasc"
+								value="#{cadastroBean.contato.dataNascimento}"
+								placeholder="Data de Nascimento:" mask="99/99/9999"
+								required="true" requiredMessage="A Data de Nascimento deve ser informada!">
+								<f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"
+									timeZone="America/Sao_Paulo" />
+							</p:inputMask>
+							<p:outputLabel value="Sexo:" for="inputSexo" />
+							<p:selectOneButton id="inputSexo"
+								value="#{cadastroBean.contato.sexo}" required="true" requiredMessage="O Sexo deve ser informado!">
+								<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
+								<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
+
+							</p:selectOneButton>
+
+
+
+							<p:commandButton value="Enviar" action="#{cadastroBean.salvar}" ajax="false"></p:commandButton>
 						</h:panelGrid>
 					</h:form>
 				</p:fieldset>

@@ -18,7 +18,18 @@ public class ContatoRN {
 
 	}
 
+	public void excluir(Contato contato) {
+		contatoDAO.excluir(contato);
+
+	}
+
 	public List<Contato> listar() {
 		return contatoDAO.listar();
 	}
+
+	public Contato caregar(Integer codigo) {
+		
+		return contatoDAO.caregar(codigo);
+	}
+
 }
