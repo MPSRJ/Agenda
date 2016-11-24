@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- Configuração do DataSource para acesso ao Banco de Dados -->
+		<property name="connection.datasource">java:/comp/env/jdbc/AgendaDB</property>
+
+		<!-- Gerenciamento automático de sessão no Hibernate -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Desabilitar cache de segundo nível no Hibernate -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		
+		<!-- Encoding de cracteres para usar utf-8 -->
+		<property name="hibernate.connection.characterEncoding">utf8</property>
+		
+		<!-- Geração automática do banco de dados -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!-- Imprimir e formatar consultas SQL no console -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+
+		<!--Mapeamento das Classes -->
+		<mapping class="agenda.modelo.contato.Contato" />
+
+	</session-factory>
+</hibernate-configuration>
